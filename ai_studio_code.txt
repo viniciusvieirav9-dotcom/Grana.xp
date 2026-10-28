@@ -1,0 +1,58 @@
+granaxp/
+├── .env.example                     # Modelo de variáveis de ambiente (PORT, ADMIN_PASSWORD)
+├── .gitignore                       # Arquivos ignorados pelo Git (node_modules, .env, dist)
+├── index.html                       # Ponto de entrada HTML com fontes e metatags
+├── package.json                     # Dependências e scripts de execução ("dev", "build", "start")
+├── tsconfig.json                    # Configurações do compilador TypeScript
+├── vite.config.ts                   # Configurações do Vite e Tailwind v4
+├── vercel.json                      # Regras de roteamento SPA e Serverless para a Vercel
+├── README.md                        # Manual completo de execução e publicação pelo celular/PC
+│
+├── api/
+│   └── index.ts                     # Ponto de entrada Serverless da API para publicação na Vercel
+│
+├── server/
+│   ├── auth.ts                      # Criptografia scrypt + salt, tokens de sessão e verificação admin
+│   ├── db.ts                        # Motor de banco de dados persistente com salvamento atômico
+│   ├── routes.ts                    # Rotas da API REST (Auth, Extrato, Metas, Gamificação, Admin)
+│   └── types.ts                     # Interfaces TypeScript do backend e do banco de dados
+│
+├── server.ts                        # Servidor Express Fullstack integrado com middleware Vite
+│
+├── data/
+│   └── granaxp_db.json              # Banco de dados persistente com sementes de conquistas e missões
+│
+└── src/
+    ├── main.tsx                     # Ponto de entrada do React 19
+    ├── App.tsx                      # Componente raiz com navegação de abas e gerenciador de estado
+    ├── index.css                    # Estilos globais Tailwind CSS, tipografia e scrollbars
+    ├── types.ts                     # Interfaces TypeScript compartilhadas no frontend
+    │
+    ├── context/
+    │   ├── AuthContext.tsx          # Provedor de autenticação, níveis, sons e notificações de XP
+    │   └── ThemeContext.tsx         # Provedor de alternância de tema (Claro / Escuro)
+    │
+    ├── services/
+    │   ├── api.ts                   # Cliente HTTP tipado com envio de tokens e rotas de administração
+    │   └── sound.ts                 # Sintetizador de efeitos sonoros com Web Audio API nativa
+    │
+    ├── utils/
+    │   └── formatters.ts            # Formatadores de moeda (BRL), datas, avatares e categorias
+    │
+    └── components/
+        ├── AdminModal.tsx           # Painel administrativo protegido (senha do servidor e métricas)
+        ├── AuthModal.tsx            # Modal de Cadastro e Login sem e-mail obrigatório
+        ├── BottomNav.tsx            # Barra de navegação inferior otimizada para celulares Android
+        ├── DashboardView.tsx        # Painel principal: saldos, gráficos, métricas e ações rápidas
+        ├── Footer.tsx               # Rodapé com slogan, termos e ícone de engrenagem do admin
+        ├── GamificationView.tsx     # Hub gamer: níveis, progresso, missões diárias e galeria de badges
+        ├── GoalsView.tsx            # Metas financeiras, aportes com "Guardar Dinheiro" e confetes
+        ├── Header.tsx               # Barra superior com XP, sequência de dias, tema, som e perfil
+        ├── LandingHero.tsx          # Apresentação do produto para novos visitantes com prévia interativa
+        ├── PrivacyModal.tsx         # Termos de privacidade e transparência de dados
+        ├── ProfileModal.tsx         # Customização de avatar, preferências e exclusão de conta
+        ├── ShareBadgeModal.tsx      # Gerador de cartões de conquistas compartilháveis (sem dados privados)
+        ├── SimulatorView.tsx        # Simulador interativo de juros compostos e marcos financeiros
+        ├── TransactionsView.tsx     # Extrato com filtros, categorias, inclusão, edição e exclusão
+        ├── WeeklySummaryModal.tsx   # Modal de raio-X financeiro semanal com nota de saúde
+        └── XpToast.tsx              # Notificação animada flutuante ao ganhar XP ou subir de nível
